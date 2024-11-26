@@ -72,27 +72,6 @@ void create(cfg_t cfg, double& x, double& y) {
 	y = ((rand() * rand() % 100000 / 50000.0 - 1.0)*cfg.rad);
 
 }
-//EM_comp_t field_with_envelope(double t, coords vector, EM_t(*in_field)(cfg_t, coords),
-//	EM_comp_t field, double(*make_envelope)(double, double, cfg_t),
-//	EM_comp_t(*field)(double, cfg_t, coords, coords, EM_t(*)(cfg_t, coords))) {
-//	EM_comp_t field_new;
-//	double tau = t + (in_vector.z - r_sq + 2 * cfg.f);
-//	func = field(t, cfg, in_vector, vector, in_field);
-//	result.Re_Ex += make_envelope(tau, func.Re_Ex, cfg);
-//	result.Re_Ey += make_envelope(tau, func.Re_Ey, cfg);
-//	result.Re_Ez += make_envelope(tau, func.Re_Ez, cfg);// +func.Im_Ez * (-2.0 * (-2.0 * log(0.5)) * (tau / pow(cfg.tau_FWHM, 2)) * make_envelope(tau, 1, cfg));//derivative(tau, h*tau, make_envelope, cfg);
-//	result.Re_Hx += make_envelope(tau, func.Re_Hx, cfg);// +func.Im_Hx * (-2.0 * (-2.0 * log(0.5)) * (tau / pow(cfg.tau_FWHM, 2)) * make_envelope(tau, 1, cfg));//derivative(tau, h*tau, make_envelope, cfg);
-//	result.Re_Hx += make_envelope(tau, func.Re_Hy, cfg);// +func.Im_Hy * (-2.0 * (-2.0 * log(0.5)) * (tau / pow(cfg.tau_FWHM, 2)) * make_envelope(tau, 1, cfg));//derivative(tau, h*tau, make_envelope, cfg);
-//	result.Re_Hz += make_envelope(tau, func.Re_Hz, cfg);// +func.Im_Hz * (-2.0 * (-2.0 * log(0.5)) * (tau / pow(cfg.tau_FWHM, 2)) * make_envelope(tau, 1, cfg));//derivative(tau, h*tau, make_envelope, cfg);
-//
-//	result.Im_Ex += make_envelope(tau, func.Im_Ex, cfg);// +func.Re_Ex * (-2.0 * (-2.0 * log(0.5)) * (tau / pow(cfg.tau_FWHM, 2)) * make_envelope(tau, 1, cfg));//derivative(tau, h*tau, make_envelope, cfg);
-//	result.Im_Ey += make_envelope(tau, func.Im_Ey, cfg);// +func.Re_Ey * (-2.0 * (-2.0 * log(0.5)) * (tau / pow(cfg.tau_FWHM, 2)) * make_envelope(tau, 1, cfg));//derivative(tau, h*tau, make_envelope, cfg);
-//	result.Im_Ez += make_envelope(tau, func.Im_Ez, cfg);// +func.Re_Ez * (-2.0 * (-2.0 * log(0.5)) * (tau / pow(cfg.tau_FWHM, 2)) * make_envelope(tau, 1, cfg));//derivative(tau, h*tau, make_envelope, cfg);
-//	result.Im_Hx += make_envelope(tau, func.Im_Hx, cfg);// +func.Re_Hx * (-2.0 * (-2.0 * log(0.5)) * (tau / pow(cfg.tau_FWHM, 2)) * make_envelope(tau, 1, cfg));//derivative(tau, h*tau, make_envelope, cfg);
-//	result.Im_Hy += make_envelope(tau, func.Im_Hy, cfg);// +func.Re_Hy * (-2.0 * (-2.0 * log(0.5)) * (tau / pow(cfg.tau_FWHM, 2)) * make_envelope(tau, 1, cfg));//derivative(tau, h*tau, make_envelope, cfg);
-//	result.Im_Hz += make_envelope(tau, func.Im_Hz, cfg);
-//	return field_new;
-//}
 
 EM_comp_t sum(double start, double step, int first, int end, EM_comp_t(*funct)(double, void*), void* param) {
 	EM_comp_t result, res1;
@@ -356,7 +335,7 @@ int main() {
 	ofstream fout1;
 	ofstream fout2;
 	// PIC test
-	//fout1.open(R"(C:\Users\Максим\python\Mirror_sp_distribution_f=1_tau=7.5_angle=90_pic_im.txt)");
+	//fout1.open(R"(C:\Users\ГЊГ ГЄГ±ГЁГ¬\python\Mirror_sp_distribution_f=1_tau=7.5_angle=90_pic_im.txt)");
 	//coords vector_E, vector1_E, vector_B, vector1_B;
 	//EM_comp_t Refl_field_E, Refl_field_B;
 	//steps = 20;
@@ -392,10 +371,10 @@ int main() {
 	//}
 
 
-	// Расчет ЭМ полей в плоскости XOZ 
+	// Р Р°СЃС‡РµС‚ Р­Рњ РїРѕР»РµР№ РІ РїР»РѕСЃРєРѕСЃС‚Рё XOZ  
 
-	fout1.open(R"(C:\Users\Максим\python\Mirror_sp_distribution_f=1_tau=7.5_angle=90_res.txt)");
-	//fout2.open(R"(C:\Users\Максим\python\Mirror_sp_distribution_ne_f=1_tau=7.5_angle=0_res.txt)");
+	fout1.open(R"(C:\Users\ГЊГ ГЄГ±ГЁГ¬\python\Mirror_sp_distribution_f=1_tau=7.5_angle=90_res.txt)");
+	//fout2.open(R"(C:\Users\ГЊГ ГЄГ±ГЁГ¬\python\Mirror_sp_distribution_ne_f=1_tau=7.5_angle=0_res.txt)");
 	//for (t = -steps * (d - len); t <= steps*(d- len); t += steps*(d- len)/2.0) {
 	//t = 0;// -steps * (d - len) / 2.0;
 	//len = 1.25;
@@ -436,30 +415,15 @@ int main() {
 		}
 	}
 	
-	// Расчет погрешностей
 
-	//vector.x = 0;
-	//vector.y = 0;
-	//t = -steps * (d - len)/2.0;
-	//N = 10000;
-	//fout1.open(string("C:\\Users\\Максим\\python\\Accuracy_distribution_test5_" + to_string(N) + ".txt").c_str());
-	//for (int i = 0; i <= 1000; i ++) {
-	//	for (int j = 0; j < 200; j++) {
-	//		vector.z = t + j * 1;
-	//		Refl_field = calc_int(N, t, cfg, vector, Func_Field, Func_Envelope, *Reflected_field);
-	//		fout1 << pow(Refl_field.Re_Ex, 2) + pow(Refl_field.Im_Ex, 2) << " ";
-	//	}
-	//	fout1 << endl;
-	//}
-
-	// Одномерный расчет ЭМ полей (срез)
+	// РћРґРЅРѕРјРµСЂРЅС‹Р№ СЂР°СЃС‡РµС‚ Р­Рњ РїРѕР»РµР№ (СЃСЂРµР·)
 
 	//steps = 100;
 	//double var = 0.2;
-	////fout1.open(R"(C:\Users\Максим\python\Mirror_sp_distribution_f=1_tau=3_angle=0_XOY_2D_Gauss(1).txt)");
-	////fout1.open(string("C:\\Users\\Максим\\python\\Mirror_sp_distribution_f=5_tau=" + to_string(int(cfg.tau_FWHM)) + "_angle=0_XOY_2D_Gauss.txt").c_str());
-	//fout2.open(R"(C:\Users\Максим\python\Mirror_sp_distribution_ne_f=5_angle=0_XOY_2D_Gauss.txt)");
-	////fout2.open(string("C:\\Users\\Максим\\python\\Mirror_sp_distribution_ne_f=1_lambda=" + to_string(int(cfg.lambda * 1E9)) + "_angle=0_2D_wavelength.txt").c_str());
+	////fout1.open(R"(C:\Users\ГЊГ ГЄГ±ГЁГ¬\python\Mirror_sp_distribution_f=1_tau=3_angle=0_XOY_2D_Gauss(1).txt)");
+	////fout1.open(string("C:\\Users\\ГЊГ ГЄГ±ГЁГ¬\\python\\Mirror_sp_distribution_f=5_tau=" + to_string(int(cfg.tau_FWHM)) + "_angle=0_XOY_2D_Gauss.txt").c_str());
+	//fout2.open(R"(C:\Users\ГЊГ ГЄГ±ГЁГ¬\python\Mirror_sp_distribution_ne_f=5_angle=0_XOY_2D_Gauss.txt)");
+	////fout2.open(string("C:\\Users\\ГЊГ ГЄГ±ГЁГ¬\\python\\Mirror_sp_distribution_ne_f=1_lambda=" + to_string(int(cfg.lambda * 1E9)) + "_angle=0_2D_wavelength.txt").c_str());
 	////for (t = -steps * var * (d - len); t <= steps * var * (d - len); t += steps * var * (d - len) / 2.0) {
 	//	vector.x = 0;
 	//	vector.y = 0;
@@ -482,10 +446,10 @@ int main() {
 	//	}
 	////}
 
-	//Расчет полей в плоскости XOY
+	//Р Р°СЃС‡РµС‚ РїРѕР»РµР№ РІ РїР»РѕСЃРєРѕСЃС‚Рё XOY
 
-	//fout2.open(R"(C:\Users\Максим\python\Mirror_sp_distribution_XOY_f=2.5_tau=30_angle=90_Gauss.txt)");
-	////fout2.open(R"(C:\Users\Максим\python\Mirror_sp_distribution_XOY_f=2.5_angle=90_Gauss.txt)");
+	//fout2.open(R"(C:\Users\ГЊГ ГЄГ±ГЁГ¬\python\Mirror_sp_distribution_XOY_f=2.5_tau=30_angle=90_Gauss.txt)");
+	////fout2.open(R"(C:\Users\ГЊГ ГЄГ±ГЁГ¬\python\Mirror_sp_distribution_XOY_f=2.5_angle=90_Gauss.txt)");
 	//for (t = -steps * (d - len); t <= steps * (d - len); t += steps * (d - len) / 2.0) {
 	//	vector.x = 0;
 	//	vector.y = 0;
