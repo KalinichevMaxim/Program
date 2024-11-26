@@ -1,0 +1,16 @@
+Field_amplitude: 1.0
+Initial_phase: 0.0
+Off-axis_angle: 90
+fnumber: 1
+Mirror_radius: 0.15
+Pulse_duration: 7.5
+Wavelength: 0.8
+Incident_field_mode: 2
+Time_mode: 2
+Auxillary_angle: 0
+
+
+#Падающее поле
+
+1: Константа
+2: Гаусс
